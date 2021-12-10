@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 0;
+    font-family: Helvetica;
+}
+
+.stats {
+    /* grid-column: span 1; */
+    display: flex;
+    /* justify-content: center; */
+    align-items: baseline;
+}
+
+p {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.hitpoints {
+    color: rgb(214, 59, 59);
+}
+
+.strength {
+    color: rgb(31, 82, 192);
+}
