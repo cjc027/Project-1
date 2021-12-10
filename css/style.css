@@ -5,6 +5,7 @@
 body {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
     justify-items: center;
     margin: 0;
     font-family: Helvetica;
@@ -12,10 +13,13 @@ body {
 }
 
 .stats, .monster {
-    /* grid-column: span 1; */
     display: flex;
-    /* justify-content: center; */
+    margin: 15px 0;
     align-items: baseline;
+}
+
+.test {
+    height: 30vh;
 }
 
 p {
