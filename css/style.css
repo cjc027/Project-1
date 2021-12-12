@@ -5,21 +5,23 @@
 body {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     justify-items: center;
     margin: 0;
     font-family: Helvetica;
     background-color: rgb(15, 15, 15);
 }
 
-.stats, .monster {
+.player, .monster {
     display: flex;
-    margin: 15px 0;
+    margin: 25px 0;
     align-items: baseline;
+    background-color: rgb(102, 102, 102);
+    border: 15px groove rgb(74, 79, 148) ;
 }
 
-.test {
-    height: 30vh;
+#difficulty, #stats, #monsterStats {
+    margin: 0 19px 0 0;
 }
 
 p {
@@ -28,15 +30,28 @@ p {
     font-weight: 800;
 }
 
+#roll button {
+    align-self: end;
+}
+
+#message {
+    background-color: rgb(102, 102, 102);
+    width: 500px;
+}
+
+#message, #roll {
+    height: 25vh;
+}
+
 img {
     width: 68px;
     margin: 0 10px 0 0;
 }
 
 .hitpoints {
-    color: rgb(214, 59, 59);
+    color: rgb(212, 71, 71);
 }
 
 .strength {
-    color: rgb(31, 82, 192);
+    color: rgb(17, 67, 173);
 }
