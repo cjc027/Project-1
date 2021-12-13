@@ -44,6 +44,7 @@ let roundsSurvived;
 let playerHP;
 let playerSTR;
 let monsterHP;
+let monsterSTR;
 let currentMonster;
 
 let rollNum;
@@ -95,10 +96,13 @@ function render(){
         difficultyDivEl.hidden = false;
         playerStatsEl.hidden = true;
         monsterDivEl.hidden = true;
-    }
+    };
 
     playerHPEl.innerText = playerHP;
     PlayerSTREl.innerText = playerSTR;
+    monsterHPEl.innerText = monsterHP;
+    monsterSTREl.innerText = monsterSTR;
+    monsterSpriteEl.src = currentMonster.sprite;
 };
 
 
@@ -112,14 +116,21 @@ startEl.addEventListener('click', function(event){
             };
         });
         gameInProgress = true;
+        chooseMonster(monsters);
     };
     render();
 });
 
+rollEl.addEventListener('click', function(event){
+    console.log('Roll is working');
+});
 
 // Functions
 function chooseMonster(array){
     currentMonster = array[Math.floor(Math.random()*array.length)];
+    monsterHP = currentMonster.HP;
+    monsterSTR = currentMonster.STR
+
 };
 
 function roll(){
