@@ -37,6 +37,15 @@ const monsters = [
 
 // State Variables
 
+let turn;
+let gameInProgress;
+let roundsSurvived;
+
+let playerHP;
+let monsterHP;
+let currentMonster;
+
+let rollNum;
 
 // Cached DOM Variables
 const difficultyEls = document.querySelectorAll('input');
@@ -54,8 +63,18 @@ const messageEl = document.querySelector('#message p');
 
 // Init and Render
 
+function init(){
+    console.log('Initial state')
+}
+
+init()
 
 // Event Listeners
 
 
+
 // Functions
+
+function chooseMonster(array){
+    currentMonster = array[Math.floor(Math.random()*array.length)]
+}
