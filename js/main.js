@@ -14,8 +14,8 @@ const monsterSTREl = document.querySelector('#monsterSTR');
 
 const monsterSpriteEl = document.querySelector('#monsterSprite');
 
-const startEl = document.querySelector('#start');
-const rollEl = document.querySelector('#roll');
+const startEl = document.querySelector('#start button');
+const rollEl = document.querySelector('#roll button');
 const messageEl = document.querySelector('#message p');
 
 // Init and Render
