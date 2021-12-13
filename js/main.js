@@ -42,6 +42,7 @@ let gameInProgress;
 let roundsSurvived;
 
 let playerHP;
+let playerSTR;
 let monsterHP;
 let currentMonster;
 
@@ -71,9 +72,25 @@ function init(){
 
 init();
 
+function render(){
+    console.log('Wrender');
+    playerHPEl.innerText = playerHP;
+    PlayerSTREl.innerText = playerSTR;
+};
+
 // Event Listeners
 
-
+startEl.addEventListener('click', function(event){
+    if (startEl.disabled === false){
+        difficultyEls.forEach(function(option){
+            if (option.checked === true){
+                playerHP = playerStats[option.value].HP;
+                playerSTR = playerStats[option.value].STR;
+            };
+        });
+    };
+    render();
+});
 
 // Functions
 
