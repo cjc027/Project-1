@@ -81,6 +81,7 @@ function init(){
     playerStatsEl.hidden = true;
     difficultyDivEl.hidden = false;
     monsterDivEl.hidden = true;
+    rollEl.innerText = 'Roll'
 };
 
 init();
@@ -124,11 +125,24 @@ startEl.addEventListener('click', function(event){
         message = `\n You have encountered ${currentMonster.msg}!`
         turn = 1;
     };
+
     render();
 });
 
 rollEl.addEventListener('click', function(event){
     console.log('Roll is working');
+    if (turn%2 !== 0){
+        roll();
+        message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage!`
+        monsterHP -= rollNum+playerSTR;
+        turn += 1;
+        rollEl.innerText = 'Continue'
+        if (monsterHP <= 0){
+            message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage! \n Victory!`
+        }
+    }
+
+    render();
 });
 
 // Functions
@@ -141,4 +155,5 @@ function chooseMonster(array){
 
 function roll(){
     rollNum = Math.floor(Math.random() * 8) + 1;
+    // return Math.floor(Math.random() * 8) + 1;
 };
