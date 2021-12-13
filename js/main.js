@@ -19,19 +19,22 @@ const monsters = [
         name: 'orc',
         HP: 30,
         STR: 6,
-        sprite: 'imgs/orc.png'
+        sprite: 'imgs/orc.png',
+        msg: 'an orc'
     },
     {
         name: 'skeleton',
         HP: 15,
         STR: 4,
-        sprite: 'imgs/skeleton.png'
+        sprite: 'imgs/skeleton.png',
+        msg: 'a skeleton'
     },
     {
         name: 'demon',
         HP: 40,
         STR: 8,
-        sprite: 'imgs/demon.png'
+        sprite: 'imgs/demon.png',
+        msg: 'a demon'
     }
 ];
 
@@ -74,7 +77,7 @@ function init(){
     console.log('Initial state');
     gameInProgress = false;
     roundsSurvived = 0;
-    messageEl.innerText = 'Choose a difficulty \n \n Good luck'
+    messageEl.innerText = ' Choose a difficulty  \n\n Good luck'
     playerStatsEl.hidden = true;
     difficultyDivEl.hidden = false;
     monsterDivEl.hidden = true;
@@ -93,9 +96,9 @@ function render(){
     } else {
         startEl.disabled = false;
         rollEl.disabled = true;
-        difficultyDivEl.hidden = false;
-        playerStatsEl.hidden = true;
         monsterDivEl.hidden = true;
+        playerStatsEl.hidden = true;
+        difficultyDivEl.hidden = false;
     };
 
     playerHPEl.innerText = playerHP;
@@ -103,6 +106,7 @@ function render(){
     monsterHPEl.innerText = monsterHP;
     monsterSTREl.innerText = monsterSTR;
     monsterSpriteEl.src = currentMonster.sprite;
+    messageEl.innerText = message;
 };
 
 
@@ -117,6 +121,7 @@ startEl.addEventListener('click', function(event){
         });
         gameInProgress = true;
         chooseMonster(monsters);
+        message = `\n You have encountered ${currentMonster.msg}!`
     };
     render();
 });
