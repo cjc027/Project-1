@@ -73,6 +73,7 @@ const rollEl = document.querySelector('#roll button');
 const messageEl = document.querySelector('#message p');
 
 const audioPlayer = new Audio();
+const bgAudioPlayer = document.querySelector('#bgAudio');
 
 
 // Init and Render
@@ -86,6 +87,7 @@ function init(){
     difficultyDivEl.hidden = false;
     monsterDivEl.hidden = true;
     rollEl.innerText = 'Roll'
+    bgAudioPlayer.volume = 0.5;
 };
 
 init();
