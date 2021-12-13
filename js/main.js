@@ -64,10 +64,10 @@ const messageEl = document.querySelector('#message p');
 // Init and Render
 
 function init(){
-    console.log('Initial state')
-}
+    console.log('Initial state');
+};
 
-init()
+init();
 
 // Event Listeners
 
@@ -76,5 +76,9 @@ init()
 // Functions
 
 function chooseMonster(array){
-    currentMonster = array[Math.floor(Math.random()*array.length)]
-}
+    currentMonster = array[Math.floor(Math.random()*array.length)];
+};
+
+function roll(){
+    rollNum = Math.floor(Math.random() * 8) + 1;
+};
