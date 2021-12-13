@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
   
+:root {
+    --border: rgb(74, 79, 148);
+    --background: rgb(102, 102, 102);
+  }
+
 body {
     display: grid;
     grid-template-columns: 1fr;
@@ -16,27 +21,32 @@ body {
     display: flex;
     margin: 25px 0;
     align-items: baseline;
-    background-color: rgb(102, 102, 102);
-    border: 15px groove rgb(74, 79, 148) ;
+    background-color: var(--background);
+    border: 15px groove var(--border);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 800;
 }
 
 #difficulty, #stats, #monsterStats {
     margin: 0 19px 0 0;
 }
 
-p {
+#roll {
+    display: flex;
+    align-items: flex-end;
+    margin: 15px;
+}
+
+#message p {
+    background-color: var(--background);
+    padding: 15px;
+    border: 15px groove var(--border);
     color: rgb(255, 255, 255);
-    font-size: 20px;
-    font-weight: 800;
-}
-
-#roll button {
-    align-self: end;
-}
-
-#message {
-    background-color: rgb(102, 102, 102);
-    width: 500px;
+    font-size: 18px;
+    font-weight: 600;
+    width: 480px;
+    height: 70%;
 }
 
 #message, #roll {
