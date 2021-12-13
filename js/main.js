@@ -88,7 +88,6 @@ function init(){
     rollEl.innerText = 'Roll'
 
     bgAudioPlayer.volume = 0.75;
-    ;
 };
 
 init();
@@ -142,7 +141,6 @@ startEl.addEventListener('click', function(event){
 });
 
 rollEl.addEventListener('click', function(event){
-    console.log('Roll is working');
     if (turn%2 !== 0){
         roll();
         message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage!`;
