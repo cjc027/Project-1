@@ -38,6 +38,7 @@ const monsters = [
     }
 ];
 
+const sounds = {};
 
 // State Variables
 let turn;
@@ -70,6 +71,8 @@ const monsterSpriteEl = document.querySelector('#monsterSprite');
 const startEl = document.querySelector('#start button');
 const rollEl = document.querySelector('#roll button');
 const messageEl = document.querySelector('#message p');
+
+const audioPlayer = new Audio();
 
 
 // Init and Render
@@ -181,3 +184,8 @@ function chooseMonster(array){
 function roll(){
     rollNum = Math.floor(Math.random() * 8) + 1;
 };
+
+function playSound(object, key){
+    audioPlayer.src = object[key];
+    audioPlayer.play;
+}
