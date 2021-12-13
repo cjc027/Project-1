@@ -122,6 +122,7 @@ startEl.addEventListener('click', function(event){
         gameInProgress = true;
         chooseMonster(monsters);
         message = `\n You have encountered ${currentMonster.msg}!`
+        turn = 1;
     };
     render();
 });
