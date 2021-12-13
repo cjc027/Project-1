@@ -76,6 +76,7 @@ const messageEl = document.querySelector('#message p');
 function init(){
     console.log('Initial state');
     gameInProgress = false;
+    renderProgress();
     roundsSurvived = 0;
     messageEl.innerText = ' Choose a difficulty  \n\n Good luck'
     playerStatsEl.hidden = true;
@@ -87,7 +88,32 @@ function init(){
 init();
 
 function render(){
-    console.log('Wrender');
+    // console.log('Wrender');
+    // if (gameInProgress === true){
+    //     startEl.disabled = true;
+    //     rollEl.disabled = false;
+    //     monsterDivEl.hidden = false;
+    //     playerStatsEl.hidden = false;
+    //     difficultyDivEl.hidden = true;
+    // } else {
+    //     startEl.disabled = false;
+    //     rollEl.disabled = true;
+    //     monsterDivEl.hidden = true;
+    //     playerStatsEl.hidden = true;
+    //     difficultyDivEl.hidden = false;
+    // };
+    renderProgress();
+
+    playerHPEl.innerText = playerHP;
+    PlayerSTREl.innerText = playerSTR;
+    monsterHPEl.innerText = monsterHP;
+    monsterSTREl.innerText = monsterSTR;
+    monsterSpriteEl.src = currentMonster.sprite;
+    messageEl.innerText = message;
+};
+
+
+function renderProgress(){
     if (gameInProgress === true){
         startEl.disabled = true;
         rollEl.disabled = false;
@@ -101,15 +127,7 @@ function render(){
         playerStatsEl.hidden = true;
         difficultyDivEl.hidden = false;
     };
-
-    playerHPEl.innerText = playerHP;
-    PlayerSTREl.innerText = playerSTR;
-    monsterHPEl.innerText = monsterHP;
-    monsterSTREl.innerText = monsterSTR;
-    monsterSpriteEl.src = currentMonster.sprite;
-    messageEl.innerText = message;
-};
-
+}
 
 // Event Listeners
 startEl.addEventListener('click', function(event){
@@ -133,16 +151,38 @@ rollEl.addEventListener('click', function(event){
     console.log('Roll is working');
     if (turn%2 !== 0){
         roll();
-        message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage!`
-        monsterHP -= rollNum+playerSTR;
+        message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage!`;
+        monsterHP -= rollNum + playerSTR;
         turn += 1;
-        rollEl.innerText = 'Continue'
+        rollEl.innerText = 'Continue';
         if (monsterHP <= 0){
-            message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage! \n Victory!`
-        }
+            message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage! \n Victory!`;
+            roundsSurvived += 1;
+        };
+        render();
+    } else if (monsterHP <= 0){
+        chooseMonster(monsters);
+        message = `\n You have encountered ${currentMonster.msg}!`;
+        turn = 1;
+        rollEl.innerText = 'Roll'
+        render();
+    } else if (rollEl.innerText === 'Continue' && monsterHP > 0){
+        roll();
+        message = `\n The ${currentMonster.name} rolled ${rollNum}. You take ${rollNum} + ${monsterSTR} damage!`;
+        playerHP -= rollNum + monsterSTR;
+        turn += 1;
+        rollEl.innerText = 'Roll'
+        if (playerHP <= 0){
+            message = `The ${currentMonster.name} rolled ${rollNum}. You take ${rollNum} + ${monsterSTR} damage! \n Defeat! \n \n You survived ${roundsSurvived} rounds.`
+            rollEl.innerText = 'Restart'
+            turn -= 1;
+        };
+        render();
+    } else if (rollEl.innerText === 'Restart'){
+        init()
     }
 
-    render();
+    // render();
 });
 
 // Functions
