@@ -28,7 +28,7 @@ body {
     font-weight: 800;
 }
 
-#difficulty, #stats, #monsterStats {
+#difficulty, #playerStats, #monsterStats {
     margin: 0 19px 0 0;
 }
 

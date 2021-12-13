@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="css/style.css">
     <title>SEI Project 1</title>
 </head>
+
 <body>
     <div class="player">
-        <img src='imgs/knight.png' id='knight'>
+        <img src='imgs/knight.png' id='playerSprite'>
         <div id='difficulty' hidden>
             <input type="radio" name="item" value="Easy" checked> Easy
             <input type="radio" name="item" value="Medium"> Medium
             <input type="radio" name="item" value="Hard"> Hard
         </div>
 
-        <div id='stats'>
-            <p>HP: <span class='hitpoints'>100</span> | STR: <span class='strength'>5</span></p>
+        <div id='playerStats'>
+            <p>HP: <span class='hitpoints' id='playerHP'>100</span> | STR: <span class='strength' id='playerSTR'>5</span></p>
         </div>
     </div>
 
@@ -34,10 +35,11 @@
     </div>
 
     <div class='monster'>
-        <img src='imgs/demon.png' id='monster'>
+        <img src='imgs/demon.png' id='monsterSprite'>
         <div id='monsterStats'>
-            <p>HP: <span class='hitpoints'>100</span> | STR: <span class='strength'>5</span></p>
+            <p>HP: <span class='hitpoints' id='monsterHP'>100</span> | STR: <span class='strength' id='monsterSTR'>5</span></p>
         </div>
     </div>
 </body>
+
 </html>
