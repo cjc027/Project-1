@@ -65,6 +65,8 @@ const messageEl = document.querySelector('#message p');
 
 function init(){
     console.log('Initial state');
+    gameInProgress = false;
+    roundsSurvived = 0;
 };
 
 init();
