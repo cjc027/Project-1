@@ -88,20 +88,6 @@ function init(){
 init();
 
 function render(){
-    // console.log('Wrender');
-    // if (gameInProgress === true){
-    //     startEl.disabled = true;
-    //     rollEl.disabled = false;
-    //     monsterDivEl.hidden = false;
-    //     playerStatsEl.hidden = false;
-    //     difficultyDivEl.hidden = true;
-    // } else {
-    //     startEl.disabled = false;
-    //     rollEl.disabled = true;
-    //     monsterDivEl.hidden = true;
-    //     playerStatsEl.hidden = true;
-    //     difficultyDivEl.hidden = false;
-    // };
     renderProgress();
 
     playerHPEl.innerText = playerHP;
@@ -182,7 +168,6 @@ rollEl.addEventListener('click', function(event){
         init()
     }
 
-    // render();
 });
 
 // Functions
@@ -195,5 +180,4 @@ function chooseMonster(array){
 
 function roll(){
     rollNum = Math.floor(Math.random() * 8) + 1;
-    // return Math.floor(Math.random() * 8) + 1;
 };
