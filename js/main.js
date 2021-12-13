@@ -38,7 +38,7 @@ const monsters = [
     }
 ];
 
-const sounds = {};
+const rollSound = new Audio('audio/nettimato__rolling-dice-2.wav')
 
 // State Variables
 let turn;
@@ -72,7 +72,6 @@ const startEl = document.querySelector('#start button');
 const rollEl = document.querySelector('#roll button');
 const messageEl = document.querySelector('#message p');
 
-const audioPlayer = new Audio();
 const bgAudioPlayer = document.querySelector('#bgAudio');
 
 
@@ -87,13 +86,17 @@ function init(){
     difficultyDivEl.hidden = false;
     monsterDivEl.hidden = true;
     rollEl.innerText = 'Roll'
-    bgAudioPlayer.volume = 0.5;
+
+    bgAudioPlayer.volume = 0.75;
+    ;
 };
 
 init();
 
 function render(){
     renderProgress();
+
+    bgAudioPlayer.play()
 
     playerHPEl.innerText = playerHP;
     PlayerSTREl.innerText = playerSTR;
@@ -187,7 +190,7 @@ function roll(){
     rollNum = Math.floor(Math.random() * 8) + 1;
 };
 
-function playSound(object, key){
-    audioPlayer.src = object[key];
+function playSound(key){
+    audioPlayer.src = sounds[key];
     audioPlayer.play;
 }
