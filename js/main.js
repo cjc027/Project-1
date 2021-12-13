@@ -1,5 +1,39 @@
 // Constants
+const playerStats = {
+    'Easy': {
+        HP: 150,
+        STR: 10
+    },
+    'Medium': {
+        HP: 100,
+        STR: 8
+    },
+    'Hard': {
+        HP: 75,
+        STR: 5
+    }
+};
 
+const monsters = [
+    {
+        name: 'orc',
+        HP: 30,
+        STR: 6,
+        sprite: 'imgs/orc.png'
+    },
+    {
+        name: 'skeleton',
+        HP: 15,
+        STR: 4,
+        sprite: 'imgs/skeleton.png'
+    },
+    {
+        name: 'demon',
+        HP: 40,
+        STR: 8,
+        sprite: 'imgs/demon.png'
+    }
+];
 
 // State Variables
 
