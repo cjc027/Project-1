@@ -96,7 +96,10 @@ img {
 
 
 @keyframes orc {
-    
+    0% {}
+    33% {}
+    66% {}
+    100% {}
 }
 
 .orcAnimation {
@@ -106,7 +109,10 @@ img {
 
 
 @keyframes demon {
-
+    0% {}
+    33% {}
+    66% {}
+    100% {}
 }
 
 .demonAnimation {
@@ -116,7 +122,10 @@ img {
 
 
 @keyframes skeleton {
-
+    0% {}
+    33% {}
+    66% {}
+    100% {}
 }
 
 .skeletonAnimation {
@@ -125,7 +134,10 @@ img {
 }
 
 @keyframes player {
-
+    0% {}
+    33% {}
+    66% {}
+    100% {}
 }
 
 .playerAnimation {
