@@ -93,3 +93,42 @@ img {
 .strength {
     color: rgb(17, 67, 173);
 }
+
+
+@keyframes orc {
+    
+}
+
+.orcAnimation {
+    animation-name: orc; 
+    animation-duration: 3s;
+}
+
+
+@keyframes demon {
+
+}
+
+.demonAnimation {
+    animation-name: demon; 
+    animation-duration: 3s;
+}
+
+
+@keyframes skeleton {
+
+}
+
+.skeletonAnimation {
+    animation-name: skeleton; 
+    animation-duration: 3s;
+}
+
+@keyframes player {
+
+}
+
+.playerAnimation {
+    animation-name: player; 
+    animation-duration: 3s;
+}
