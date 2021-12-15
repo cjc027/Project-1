@@ -147,15 +147,40 @@ startEl.addEventListener('click', function(event){
         });
         gameInProgress = true;
         chooseMonster(monsters);
-        message = `\n You have encountered ${currentMonster.msg}!`
-        turn = 1;
+        // message = `\n You have encountered ${currentMonster.msg}!`
+
+        // Initiative code // Commented out 150 + 156
+        message = `\n You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
+        initiative = true;
+
+        // turn = 1;
     };
 
     render();
 });
 
 rollEl.addEventListener('click', function(event){
-    if (turn%2 !== 0){
+    if (rollEl.innerText === 'Restart'){
+        init()
+    };
+    
+    if (initiative === true) {
+        rollSound.volume = 0.5;
+        rollSound.play();
+        let monsterRoll = Math.floor(Math.random() * 8) + 1;
+        let playerRoll = Math.floor(Math.random() * 8) + 1;
+        if (playerRoll >= monsterRoll){
+            turn = 1;
+            message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
+            rollEl.innerText = 'Roll';
+        } else {
+            turn = 2;
+            message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
+            rollEl.innerText = 'Continue';
+        }
+        initiative = false;
+        render();
+    } else if (turn%2 !== 0){
         roll();
         rollSound.volume = 0.5;
         rollSound.play();
@@ -171,8 +196,11 @@ rollEl.addEventListener('click', function(event){
         render();
     } else if (monsterHP <= 0){
         chooseMonster(monsters);
-        message = `\n You have encountered ${currentMonster.msg}!`;
-        turn = 1;
+        // message = `\n You have encountered ${currentMonster.msg}!`;
+        // Initiative code commented out 198 + 202
+        message = `\n You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
+        initiative = true;
+        // turn = 1;
         rollEl.innerText = 'Roll'
         render();
     } else if (rollEl.innerText === 'Continue' && monsterHP > 0){
@@ -189,9 +217,10 @@ rollEl.addEventListener('click', function(event){
             turn -= 1;
         };
         render();
-    } else if (rollEl.innerText === 'Restart'){
-        init()
-    }
+    }; 
+    // else if (rollEl.innerText === 'Restart'){
+    //     init()
+    // }
 
 });
 
