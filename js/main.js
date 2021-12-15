@@ -88,6 +88,8 @@ function init(){
     rollEl.innerText = 'Roll'
 
     bgAudioPlayer.volume = 0.75;
+
+    document.querySelector('#playerSprite').classList.remove(`playerDeath`);
 };
 
 init();
@@ -153,9 +155,11 @@ rollEl.addEventListener('click', function(event){
         if (monsterHP <= 0){
             message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage! \n Victory!`;
             roundsSurvived += 1;
+            monsterSpriteEl.classList.add(`${currentMonster.name}Death`)
         };
         render();
     } else if (monsterHP <= 0){
+        monsterSpriteEl.classList.remove(`${currentMonster.name}Death`);
         chooseMonster(monsters);
         message = `\n You have encountered ${currentMonster.msg}!`;
         turn = 1;
@@ -173,6 +177,7 @@ rollEl.addEventListener('click', function(event){
             defeatSound.play();
             rollEl.innerText = 'Restart'
             turn -= 1;
+            document.querySelector('#playerSprite').classList.add(`playerDeath`);
         };
         render();
     } else if (rollEl.innerText === 'Restart'){
@@ -185,8 +190,7 @@ rollEl.addEventListener('click', function(event){
 function chooseMonster(array){
     currentMonster = array[Math.floor(Math.random()*array.length)];
     monsterHP = currentMonster.HP;
-    monsterSTR = currentMonster.STR
-
+    monsterSTR = currentMonster.STR;
 };
 
 function roll(){
