@@ -197,7 +197,7 @@ rollEl.addEventListener('click', function(event){
     } else if (monsterHP <= 0){
         chooseMonster(monsters);
         // message = `\n You have encountered ${currentMonster.msg}!`;
-        // Initiative code commented out 198 + 202
+        // Initiative code commented out 199 + 203
         message = `\n You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
         initiative = true;
         // turn = 1;
