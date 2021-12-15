@@ -96,51 +96,55 @@ img {
 
 
 @keyframes orc {
-    0% {}
-    33% {}
-    66% {}
-    100% {}
+    0% {content: url('../imgs/animation/orc_0.png');}
+    33% {content: url('../imgs/animation/orc_1.png');}
+    66% {content: url('../imgs/animation/orc_2.png');}
+    100% {content: url('../imgs/animation/orc_3.png');}
 }
 
-.orcAnimation {
+.orcDeath {
+    content: url('../imgs/animation/orc_3.png');
     animation-name: orc; 
     animation-duration: 3s;
 }
 
 
 @keyframes demon {
-    0% {}
-    33% {}
-    66% {}
-    100% {}
+    0% {content: url('../imgs/animation/demon_0.png')}
+    33% {content: url('../imgs/animation/demon_1.png')}
+    66% {content: url('../imgs/animation/demon_2.png')}
+    100% {content: url('../imgs/animation/demon_3.png')}
 }
 
-.demonAnimation {
+.demonDeath {
+    content: url('../imgs/animation/demon_3.png');
     animation-name: demon; 
     animation-duration: 3s;
 }
 
 
 @keyframes skeleton {
-    0% {}
-    33% {}
-    66% {}
-    100% {}
+    0% {content: url('../imgs/animation/skeleton_0.png')}
+    33% {content: url('../imgs/animation/skeleton_1.png')}
+    66% {content: url('../imgs/animation/skeleton_2.png')}
+    100% {content: url('../imgs/animation/skeleton_3.png')}
 }
 
-.skeletonAnimation {
+.skeletonDeath {
+    content: url('../imgs/animation/skeleton_3.png');
     animation-name: skeleton; 
     animation-duration: 3s;
 }
 
 @keyframes player {
-    0% {}
-    33% {}
-    66% {}
-    100% {}
+    0% {content: url('../imgs/animation/knight_0.png')}
+    33% {content: url('../imgs/animation/knight_1.png')}
+    66% {content: url('../imgs/animation/knight_2.png')}
+    100% {content: url('../imgs/animation/knight_3.png')}
 }
 
-.playerAnimation {
+.playerDeath {
+    content: url('../imgs/animation/knight_3.png');
     animation-name: player; 
     animation-duration: 3s;
 }
