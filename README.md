@@ -23,7 +23,6 @@ Begin by selecting a difficulty, then press the _Start_ button. The difficulty s
 - Instead of only encountering monsters, add in additional encounters (e.g. treasure rooms or rest areas). Add an element of risk-reward by giving the player two options: to roll or to leave. The player can leave with no penalty and move on to the next encounter. If the player chooses to roll, they must roll above a certain value in order to avoid a negative outcome (e.g. a trap or an ambush).
 
 ## Attributions
-[Roll SFX](https://freesound.org/people/nettimato/sounds/353974/) by nettimato <br>
-[Dungeon Ambiance](https://freesound.org/people/phlair/sounds/388340/?page=1#comment) by Phlair<br>
-[Dungeon Sprites](https://analogstudios.itch.io/dungeonsprites) by analogStudios<br>
-Defeat SFX from *__Dark Souls__*, developed by FromSoftware and published by Bandai Namco Games<br>
+[Roll SFX](https://freesound.org/people/nettimato/sounds/353974/) by nettimato [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)<br>
+[Dungeon Ambiance](https://freesound.org/people/phlair/sounds/388340/?page=1#comment) by Phlair [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)<br>
+[Dungeon Sprites](https://analogstudios.itch.io/dungeonsprites) by analogStudios [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)<br>

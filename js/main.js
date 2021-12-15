@@ -39,7 +39,7 @@ const monsters = [
 ];
 
 const rollSound = new Audio('audio/nettimato__rolling-dice-2.wav')
-const defeatSound = new Audio('audio/darksouls_youdied.mp3')
+// const defeatSound = new Audio('audio/darksouls_youdied.mp3')
 
 // State Variables
 let turn;
@@ -204,8 +204,8 @@ rollEl.addEventListener('click', function(event){
         rollEl.innerText = 'Roll'
         if (playerHP <= 0){
             message = `The ${currentMonster.name} rolled ${rollNum}. You take ${rollNum} + ${monsterSTR} damage! \n Defeat! \n \n You survived ${roundsSurvived} rounds.`
-            defeatSound.volume = 0.4;
-            defeatSound.play();
+            // defeatSound.volume = 0.4;
+            // defeatSound.play();
             rollEl.innerText = 'Restart'
             turn -= 1;
         };
