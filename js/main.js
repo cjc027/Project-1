@@ -107,7 +107,6 @@ function render(){
     messageEl.innerText = message;
 };
 
-
 function renderProgress(){
     if (gameInProgress === true){
         startEl.disabled = true;
@@ -122,7 +121,19 @@ function renderProgress(){
         playerStatsEl.hidden = true;
         difficultyDivEl.hidden = false;
     };
-}
+};
+
+function renderAnimation(){
+    if ((monsterHP <= 0) && rollEl.innerText === 'Continue'){
+        monsterSpriteEl.classList.add(`${currentMonster.name}Death`);
+    } else {
+        monsterSpriteEl.className = '';
+    };
+
+    if (playerHP <= 0){
+        document.querySelector('#playerSprite').classList.add(`playerDeath`);
+    };
+};
 
 // Event Listeners
 startEl.addEventListener('click', function(event){
@@ -155,7 +166,7 @@ rollEl.addEventListener('click', function(event){
         if (monsterHP <= 0){
             message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage! \n Victory!`;
             roundsSurvived += 1;
-            monsterSpriteEl.classList.add(`${currentMonster.name}Death`)
+            monsterSpriteEl.classList.add(`${currentMonster.name}Death`);
         };
         render();
     } else if (monsterHP <= 0){
