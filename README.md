@@ -3,6 +3,10 @@
 A minimalistic dungeon crawler with gameplay mechanics inspired by _Dungeons & Dragons_. Choose a difficulty, then face off against an endless horde of monsters. Keep rolling the dice to see how long you can survive!
 
 ## Screenshots
+<p float="left">
+    <img src="imgs/screenshot_1.png" width="40%" alt="Start screen">
+    <img src="imgs/screenshot_2.png" width="40%" alt="Start screen">
+</p>
 
 ## Technologies Used
 HTML, CSS, and Javascript
