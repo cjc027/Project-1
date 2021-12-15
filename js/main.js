@@ -82,7 +82,7 @@ function init(){
     gameInProgress = false;
     renderProgress();
     roundsSurvived = 0;
-    messageEl.innerText = ' Choose a difficulty  \n\n Good luck'
+    messageEl.innerText = ' \n Choose a difficulty  \n Good luck'
     playerStatsEl.hidden = true;
     difficultyDivEl.hidden = false;
     monsterDivEl.hidden = true;
@@ -163,8 +163,8 @@ rollEl.addEventListener('click', function(event){
     if (initiative === true) {
         rollSound.volume = 0.5;
         rollSound.play();
-        let monsterRoll = Math.floor(Math.random() * 8) + 1;
-        let playerRoll = Math.floor(Math.random() * 8) + 1;
+        let monsterRoll = roll();
+        let playerRoll = roll();
         if (playerRoll >= monsterRoll){
             turn = 1;
             message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
@@ -177,7 +177,7 @@ rollEl.addEventListener('click', function(event){
         initiative = false;
         render();
     } else if (turn%2 !== 0){
-        roll();
+        rollNum = roll();
         rollSound.volume = 0.5;
         rollSound.play();
 
@@ -197,7 +197,7 @@ rollEl.addEventListener('click', function(event){
         rollEl.innerText = 'Roll'
         render();
     } else if (rollEl.innerText === 'Continue' && monsterHP > 0){
-        roll();
+        rollNum = roll();
         message = `\n The ${currentMonster.name} rolled ${rollNum}. You take ${rollNum} + ${monsterSTR} damage!`;
         playerHP -= rollNum + monsterSTR;
         turn += 1;
@@ -222,7 +222,7 @@ function chooseMonster(array){
 };
 
 function roll(){
-    rollNum = Math.floor(Math.random() * 8) + 1;
+    return Math.floor(Math.random() * 8) + 1;
 };
 
 function playSound(key){
