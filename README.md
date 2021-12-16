@@ -20,9 +20,27 @@ Begin by selecting a difficulty, then press the _Start_ button. The difficulty s
 ## Next Steps
 - Give the player a set of starting items depending on the difficulty selected
 - Give monsters a small chance to drop items
-- Add additional encounter types (e.g. treasure rooms or rest areas). Add an element of risk-reward by giving the player two options: to roll or to leave. The player can leave with no penalty and move on to the next encounter. If the player chooses to roll, they must roll above a certain value in order to avoid a negative outcome (e.g. a trap or an ambush)
-- Implement more stat types (e.g. dexterity) that can augment the player's dice roll in room encounters (in the same way that the strength stat augments player damage)
-- Using these new stats, assign monsters resistance or weakness to certain stats. Instead of strength, use the player's highest stat to augment damage. If the player rolls successfully in a treasure room encounter, they will be presented with 3 items to choose from. In this way, the player can make more meaningful choices about the type of character they want to build
+
+- <details>
+    <summary>Stretch Goals (Click to expand)</summary>
+
+    <ul>
+    <li>
+    Add additional encounter types (e.g. treasure rooms or rest areas). Add an element of risk-reward by giving the player two options: to roll or to leave. The player can leave with no penalty and move on to the next encounter. If the player chooses to roll, they must roll above a certain value in order to avoid a negative outcome (e.g. a trap or an ambush)
+    </li>
+    <li>
+    Add additional encounter types (e.g. treasure rooms or rest areas). Add an element of risk-reward by giving the player two options: to roll or to leave. The player can leave with no penalty and move on to the next encounter. If the player chooses to roll, they must roll above a certain value in order to avoid a negative outcome (e.g. a trap or an ambush)
+    </li>
+    <li>
+    Implement more stat types (e.g. dexterity) that can augment the player's dice roll in room encounters (in the same way that the strength stat augments player damage)
+    </li>
+    <li>
+    Using these new stats, assign monsters resistance or weakness to certain stats. Instead of strength, use the player's highest stat to augment damage. If the player rolls successfully in a treasure room encounter, they will be presented with 3 items to choose from. In this way, the player can make more meaningful choices about the type of character they want to build
+    </li>
+    </ul>
+</details>
+
+
 
 ## Attributions
 [Dice Roll SFX](https://freesound.org/people/nettimato/sounds/353974/) by nettimato [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)<br>
