@@ -15,7 +15,7 @@ HTML, CSS, and Javascript
 
 (Placeholder - Link to game)
 
-Begin by selecting a difficulty, then press the _Start_ button. The difficulty selected will determine your starting hitpoints and strength. When you first encounter a monster, you will need to roll for initiative. If your roll is greater or equal to the monster's, you will attack first. Rolling returns a number between 1 and 8, which is added to your strength to determine the damage you deal. Good luck!
+Begin by selecting a difficulty, then press the _Start_ button. The difficulty selected will determine your starting stats and items. When you first encounter a monster, you will need to roll for initiative. If your roll is greater or equal to the monster's, you will attack first. Items may only be used on your turn before you roll. Rolling returns a number between 1 and 8, which is added to your strength to determine the damage you deal. Good luck!
 
 ## Next Steps
 - Give monsters a small chance to drop items

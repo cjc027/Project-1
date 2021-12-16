@@ -41,7 +41,9 @@ const monsters = [
     }
 ];
 
-const rollSound = new Audio('audio/nettimato__rolling-dice-2.wav')
+const rollSound = new Audio('audio/nettimato__rolling-dice-2.wav');
+const potionSound = new Audio('audio/valentinpetiteau__potion-drink-swallow.wav');
+const smokeSound = new Audio('audio/saviraz__poof-in-cloud.mp3');
 
 // State Variables
 let turn;
@@ -215,12 +217,18 @@ itemsEl.addEventListener('click', function(event){
     console.dir(event.target);
     if ((turn%2 !== 0) && (initiative === false) && event.target.className !== 'items') {
         if (event.target.className === 'potion'){
+            potionSound.volume = 0.5;
+            potionSound.play();
+
             playerHP += 15;
             turn += 1;
             message = 'You used a potion. You heal for 15 HP!';
             rollEl.innerText = 'Continue'
             event.target.className = ''
         } else {
+            smokeSound.volume = 0.5;
+            smokeSound.play();
+            
             escaped = true;
             message = 'You used a smoke bomb. You manage to escape!';
             rollEl.innerText = 'Continue'
@@ -244,7 +252,6 @@ function chooseMonster(array){
 function roll(){
     return Math.floor(Math.random() * 8) + 1;
 };
-
 
 function rollInitiative(){
     rollSound.volume = 0.5;
