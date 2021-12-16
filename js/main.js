@@ -1,16 +1,19 @@
 // Constants
 const playerStats = {
     'Easy': {
-        HP: 150,
-        STR: 10
+        HP: 100,
+        STR: 10,
+        items: ['Potion', 'Potion', 'Potion', 'Potion', 'Smoke']
     },
     'Medium': {
         HP: 100,
-        STR: 8
+        STR: 8,
+        items: ['Potion', 'Potion', 'Smoke']
     },
     'Hard': {
         HP: 75,
-        STR: 5
+        STR: 7,
+        items: ['Potion', 'Smoke']
     }
 };
 

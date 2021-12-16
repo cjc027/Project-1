@@ -29,9 +29,6 @@ Begin by selecting a difficulty, then press the _Start_ button. The difficulty s
     Add additional encounter types (e.g. treasure rooms or rest areas). Add an element of risk-reward by giving the player two options: to roll or to leave. The player can leave with no penalty and move on to the next encounter. If the player chooses to roll, they must roll above a certain value in order to avoid a negative outcome (e.g. a trap or an ambush)
     </li>
     <li>
-    Add additional encounter types (e.g. treasure rooms or rest areas). Add an element of risk-reward by giving the player two options: to roll or to leave. The player can leave with no penalty and move on to the next encounter. If the player chooses to roll, they must roll above a certain value in order to avoid a negative outcome (e.g. a trap or an ambush)
-    </li>
-    <li>
     Implement more stat types (e.g. dexterity) that can augment the player's dice roll in room encounters (in the same way that the strength stat augments player damage)
     </li>
     <li>

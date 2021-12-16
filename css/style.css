@@ -78,7 +78,7 @@ button:active:enabled {
 }
 
 #message, #roll {
-    height: 25vh;
+    height: 20vh;
 }
 
 img {
@@ -148,3 +148,4 @@ img {
     animation-name: player; 
     animation-duration: 1.5s;
 }
+
