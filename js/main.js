@@ -86,11 +86,12 @@ function init(){
     gameInProgress = false;
     renderProgress();
     roundsSurvived = 0;
-    messageEl.innerText = ' \n Choose a difficulty  \n Good luck'
+    messageEl.innerText = 'Choose a difficulty  \n Good luck'
     playerStatsEl.hidden = true;
     difficultyDivEl.hidden = false;
     monsterDivEl.hidden = true;
     rollEl.innerText = 'Roll'
+    escaped = false;
 
     bgAudioPlayer.volume = 0.75;
 
@@ -158,7 +159,7 @@ startEl.addEventListener('click', function(event){
         });
         gameInProgress = true;
         chooseMonster(monsters);
-        message = `\n You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
+        message = `You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
         initiative = true;
     };
 
@@ -171,20 +172,6 @@ rollEl.addEventListener('click', function(event){
     };
     
     if (initiative === true) {
-        // rollSound.volume = 0.5;
-        // rollSound.play();
-        // let monsterRoll = roll();
-        // let playerRoll = roll();
-        // if (playerRoll >= monsterRoll){
-        //     turn = 1;
-        //     message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
-        //     rollEl.innerText = 'Roll';
-        // } else {
-        //     turn = 2;
-        //     message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
-        //     rollEl.innerText = 'Continue';
-        // }
-        // initiative = false;
         rollInitiative();
         render();
     } else if ((turn%2 !== 0) && escaped === false){
@@ -205,6 +192,7 @@ rollEl.addEventListener('click', function(event){
         chooseMonster(monsters);
         message = `You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
         initiative = true;
+        escaped = false;
         rollEl.innerText = 'Roll'
         render();
     } else if (rollEl.innerText === 'Continue' && monsterHP > 0){
@@ -225,16 +213,18 @@ rollEl.addEventListener('click', function(event){
 
 itemsEl.addEventListener('click', function(event){
     console.dir(event.target);
-    if ((turn%2 !== 0) && initiative === false) {
+    if ((turn%2 !== 0) && (initiative === false) && event.target.className !== 'items') {
         if (event.target.className === 'potion'){
             playerHP += 15;
             turn += 1;
             message = 'You used a potion. You heal for 15 HP!';
             rollEl.innerText = 'Continue'
+            event.target.className = ''
         } else {
             escaped = true;
             message = 'You used a smoke bomb. You manage to escape!';
             rollEl.innerText = 'Continue'
+            event.target.className = ''
         }
     } else if (initiative === true) {
         message = 'Please roll for initiative first.'
@@ -263,11 +253,11 @@ function rollInitiative(){
         let playerRoll = roll();
         if (playerRoll >= monsterRoll){
             turn = 1;
-            message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
+            message = `You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
             rollEl.innerText = 'Roll';
         } else {
             turn = 2;
-            message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
+            message = `You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
             rollEl.innerText = 'Continue';
         }
         initiative = false;
