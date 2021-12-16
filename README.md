@@ -18,16 +18,13 @@ HTML, CSS, and Javascript
 Begin by selecting a difficulty, then press the _Start_ button. The difficulty selected will determine your starting hitpoints and strength. When you first encounter a monster, you will need to roll for initiative. If your roll is greater or equal to the monster's, you will attack first. Rolling returns a number between 1 and 8, which is added to your strength to determine the damage you deal. Good luck!
 
 ## Next Steps
-- Give the player a set of starting items depending on the difficulty selected
 - Give monsters a small chance to drop items
+- Add additional encounter types (e.g. treasure rooms or rest areas). Add an element of risk-reward by giving the player two options: to roll or to leave. The player can leave with no penalty and move on to the next encounter. If the player chooses to roll, they must roll above a certain value in order to avoid a negative outcome (e.g. a trap or an ambush)
 
 - <details>
-    <summary>Stretch Goals (Click to expand)</summary>
+    <summary>Long-term goals (<b>Click to expand</b>)</summary>
 
     <ul>
-    <li>
-    Add additional encounter types (e.g. treasure rooms or rest areas). Add an element of risk-reward by giving the player two options: to roll or to leave. The player can leave with no penalty and move on to the next encounter. If the player chooses to roll, they must roll above a certain value in order to avoid a negative outcome (e.g. a trap or an ambush)
-    </li>
     <li>
     Implement more stat types (e.g. dexterity) that can augment the player's dice roll in room encounters (in the same way that the strength stat augments player damage)
     </li>
