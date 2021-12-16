@@ -3,17 +3,17 @@ const playerStats = {
     'Easy': {
         HP: 100,
         STR: 10,
-        items: ['Potion', 'Potion', 'Potion', 'Potion', 'Smoke']
+        items: ['potion', 'potion', 'potion', 'potion', 'smoke']
     },
     'Medium': {
         HP: 100,
         STR: 8,
-        items: ['Potion', 'Potion', 'Smoke']
+        items: ['potion', 'potion', 'smoke']
     },
     'Hard': {
         HP: 75,
         STR: 7,
-        items: ['Potion', 'Smoke']
+        items: ['potion', 'smoke']
     }
 };
 
@@ -63,6 +63,7 @@ let initiative;
 const difficultyEls = document.querySelectorAll('input');
 const difficultyDivEl = document.querySelector('#difficulty');
 const playerStatsEl = document.querySelector('#playerStats');
+const itemsEl = document.querySelector('.items');
 
 const playerHPEl = document.querySelector('#playerHP');
 const PlayerSTREl = document.querySelector('#playerSTR');
@@ -117,12 +118,14 @@ function renderProgress(){
         monsterDivEl.hidden = false;
         playerStatsEl.hidden = false;
         difficultyDivEl.hidden = true;
+        itemsEl.hidden = false;
     } else {
         startEl.disabled = false;
         rollEl.disabled = true;
         monsterDivEl.hidden = true;
         playerStatsEl.hidden = true;
         difficultyDivEl.hidden = false;
+        itemsEl.hidden = true;
     };
 };
 
@@ -145,13 +148,17 @@ startEl.addEventListener('click', function(event){
             if (option.checked === true){
                 playerHP = playerStats[option.value].HP;
                 playerSTR = playerStats[option.value].STR;
+                (playerStats[option.value].items).forEach(function(item){
+                    const newItem = document.createElement('img');
+                    newItem.className = item;
+                    itemsEl.appendChild(newItem)
+                })
             };
         });
         gameInProgress = true;
         chooseMonster(monsters);
         message = `\n You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
         initiative = true;
-
     };
 
     render();
@@ -224,4 +231,3 @@ function chooseMonster(array){
 function roll(){
     return Math.floor(Math.random() * 8) + 1;
 };
-
