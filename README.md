@@ -4,8 +4,8 @@ A minimalistic dungeon crawler with gameplay inspired by _Dungeons & Dragons_. C
 
 ## Screenshots
 <p float="left">
-    <img src="imgs/screenshot_1.png" width="40%" alt="Start screen">
     <img src="imgs/screenshot_2.png" width="40%" alt="Start screen">
+    <img src="imgs/screenshot_1.png" width="40%" alt="Start screen">
 </p>
 
 ## Technologies Used
@@ -13,7 +13,7 @@ HTML, CSS, and Javascript
 
 ## Getting Started
 
-(Placeholder - Link to game)
+[Link to deployed game](https://cjc027.github.io/Project-1/)
 
 Begin by selecting a difficulty, then press the _Start_ button. The difficulty selected will determine your starting stats and items. When you first encounter a monster, you will need to roll for initiative. If your roll is greater or equal to the monster's, you will attack first. Items may only be used on your turn before you roll. Rolling returns a number between 1 and 8, which is added to your strength to determine the damage you deal. Good luck!
 
@@ -40,3 +40,5 @@ Begin by selecting a difficulty, then press the _Start_ button. The difficulty s
 [Dice Roll SFX](https://freesound.org/people/nettimato/sounds/353974/) by nettimato [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)<br>
 [Dungeon Ambiance](https://freesound.org/people/phlair/sounds/388340/?page=1#comment) by Phlair [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)<br>
 [Dungeon Sprites](https://analogstudios.itch.io/dungeonsprites) by analogStudios [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)<br>
+[Potion SFX](https://freesound.org/people/ValentinPetiteau/sounds/574077/) by ValentinPetiteau [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)<br>
+[Smoke Poof SFX](https://freesound.org/people/Saviraz/sounds/512217/) by Saviraz [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)<br>
