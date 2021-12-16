@@ -28,6 +28,32 @@ body {
     font-weight: 800;
 }
 
+.items {
+    margin: 30px 0;
+    padding: 3px 2px;   
+    background-color: var(--background);
+    border: 10px groove var(--border);
+    display: grid;
+    grid-template-columns: 35px 35px 35px 35px 35px;
+    grid-template-rows: auto;
+    align-items: flex-start;
+}
+
+.items img {
+    width: 30px;
+    margin: 2px;
+    grid-row: 2 / 2;
+    grid-column: span 1;
+}
+
+.items img:hover {
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.items img:active {
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5), inset 1px 1px 20px rgba(0, 0, 0, 0.5);
+}
+
 #difficulty, #playerStats, #monsterStats {
     margin: 0 19px 0 0;
 }
@@ -58,7 +84,7 @@ button:hover:enabled {
 }
 
 button:active:enabled {
-    box-shadow: inset 01px 4px 10px rgba(0, 0, 0, 0.5)
+    box-shadow: inset 1px 4px 10px rgba(0, 0, 0, 0.5)
 }
 
 [hidden] {
@@ -149,3 +175,10 @@ img {
     animation-duration: 1.5s;
 }
 
+.potion {
+    content: url('../imgs/Half-Red.png')
+}
+
+.smokeBomb {
+    content: url('../imgs/Full-Black.png')
+}
