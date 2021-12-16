@@ -57,6 +57,7 @@ let currentMonster;
 let rollNum;
 let message;
 let initiative;
+let escaped;
 
 
 // Cached DOM Variables
@@ -170,44 +171,45 @@ rollEl.addEventListener('click', function(event){
     };
     
     if (initiative === true) {
-        rollSound.volume = 0.5;
-        rollSound.play();
-        let monsterRoll = roll();
-        let playerRoll = roll();
-        if (playerRoll >= monsterRoll){
-            turn = 1;
-            message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
-            rollEl.innerText = 'Roll';
-        } else {
-            turn = 2;
-            message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
-            rollEl.innerText = 'Continue';
-        }
-        initiative = false;
+        // rollSound.volume = 0.5;
+        // rollSound.play();
+        // let monsterRoll = roll();
+        // let playerRoll = roll();
+        // if (playerRoll >= monsterRoll){
+        //     turn = 1;
+        //     message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
+        //     rollEl.innerText = 'Roll';
+        // } else {
+        //     turn = 2;
+        //     message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
+        //     rollEl.innerText = 'Continue';
+        // }
+        // initiative = false;
+        rollInitiative();
         render();
-    } else if (turn%2 !== 0){
+    } else if ((turn%2 !== 0) && escaped === false){
         rollNum = roll();
         rollSound.volume = 0.5;
         rollSound.play();
 
-        message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage!`;
+        message = `You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage!`;
         monsterHP -= rollNum + playerSTR;
         turn += 1;
         rollEl.innerText = 'Continue';
         if (monsterHP <= 0){
-            message = `\n You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage! \n Victory!`;
+            message = `You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage! \n Victory!`;
             roundsSurvived += 1;
         };
         render();
-    } else if (monsterHP <= 0){
+    } else if (monsterHP <= 0 || escaped === true){
         chooseMonster(monsters);
-        message = `\n You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
+        message = `You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
         initiative = true;
         rollEl.innerText = 'Roll'
         render();
     } else if (rollEl.innerText === 'Continue' && monsterHP > 0){
         rollNum = roll();
-        message = `\n The ${currentMonster.name} rolled ${rollNum}. You take ${rollNum} + ${monsterSTR} damage!`;
+        message = `The ${currentMonster.name} rolled ${rollNum}. You take ${rollNum} + ${monsterSTR} damage!`;
         playerHP -= rollNum + monsterSTR;
         turn += 1;
         rollEl.innerText = 'Roll'
@@ -221,6 +223,27 @@ rollEl.addEventListener('click', function(event){
 
 });
 
+itemsEl.addEventListener('click', function(event){
+    console.dir(event.target);
+    if ((turn%2 !== 0) && initiative === false) {
+        if (event.target.className === 'potion'){
+            playerHP += 15;
+            turn += 1;
+            message = 'You used a potion. You heal for 15 HP!';
+            rollEl.innerText = 'Continue'
+        } else {
+            escaped = true;
+            message = 'You used a smoke bomb. You manage to escape!';
+            rollEl.innerText = 'Continue'
+        }
+    } else if (initiative === true) {
+        message = 'Please roll for initiative first.'
+    } else {
+        message = 'Your turn has ended. \n You may use items next turn.'
+    }
+    render();
+});
+
 // Functions
 function chooseMonster(array){
     currentMonster = array[Math.floor(Math.random()*array.length)];
@@ -231,3 +254,21 @@ function chooseMonster(array){
 function roll(){
     return Math.floor(Math.random() * 8) + 1;
 };
+
+
+function rollInitiative(){
+    rollSound.volume = 0.5;
+        rollSound.play();
+        let monsterRoll = roll();
+        let playerRoll = roll();
+        if (playerRoll >= monsterRoll){
+            turn = 1;
+            message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
+            rollEl.innerText = 'Roll';
+        } else {
+            turn = 2;
+            message = `\n You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
+            rollEl.innerText = 'Continue';
+        }
+        initiative = false;
+}
