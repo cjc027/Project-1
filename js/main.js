@@ -88,12 +88,13 @@ function init(){
     gameInProgress = false;
     renderProgress();
     roundsSurvived = 0;
-    messageEl.innerText = 'Choose a difficulty  \n Good luck'
+    messageEl.innerText = 'Choose a difficulty  \n Good luck';
     playerStatsEl.hidden = true;
     difficultyDivEl.hidden = false;
     monsterDivEl.hidden = true;
     rollEl.innerText = 'Roll'
     escaped = false;
+    itemsEl.innerHTML = '';
 
     bgAudioPlayer.volume = 0.75;
 
@@ -105,7 +106,7 @@ init();
 function render(){
     renderProgress();
     renderAnimation();
-    bgAudioPlayer.play()
+    bgAudioPlayer.play();
 
     playerHPEl.innerText = playerHP;
     PlayerSTREl.innerText = playerSTR;
@@ -155,7 +156,7 @@ startEl.addEventListener('click', function(event){
                 (playerStats[option.value].items).forEach(function(item){
                     const newItem = document.createElement('img');
                     newItem.className = item;
-                    itemsEl.appendChild(newItem)
+                    itemsEl.appendChild(newItem);
                 })
             };
         });
@@ -170,7 +171,7 @@ startEl.addEventListener('click', function(event){
 
 rollEl.addEventListener('click', function(event){
     if (rollEl.innerText === 'Restart'){
-        init()
+        init();
     };
     
     if (initiative === true) {
@@ -195,7 +196,7 @@ rollEl.addEventListener('click', function(event){
         message = `You have encountered ${currentMonster.msg}! \n Roll for initiative.`;
         initiative = true;
         escaped = false;
-        rollEl.innerText = 'Roll'
+        rollEl.innerText = 'Roll';
         render();
     } else if (rollEl.innerText === 'Continue' && monsterHP > 0){
         rollNum = roll();
@@ -204,8 +205,8 @@ rollEl.addEventListener('click', function(event){
         turn += 1;
         rollEl.innerText = 'Roll'
         if (playerHP <= 0){
-            message = `The ${currentMonster.name} rolled ${rollNum}. You take ${rollNum} + ${monsterSTR} damage! \n Defeat! \n \n You survived ${roundsSurvived} rounds.`
-            rollEl.innerText = 'Restart'
+            message = `The ${currentMonster.name} rolled ${rollNum}. You take ${rollNum} + ${monsterSTR} damage! \n Defeat! \n \n You survived ${roundsSurvived} rounds.`;
+            rollEl.innerText = 'Restart';
             turn -= 1;
         };
         render();
@@ -223,8 +224,8 @@ itemsEl.addEventListener('click', function(event){
             playerHP += 15;
             turn += 1;
             message = 'You used a potion. You heal for 15 HP!';
-            rollEl.innerText = 'Continue'
-            event.target.className = ''
+            rollEl.innerText = 'Continue';
+            event.target.className = '';
         } else {
             smokeSound.volume = 0.5;
             smokeSound.play();
@@ -235,9 +236,9 @@ itemsEl.addEventListener('click', function(event){
             event.target.className = ''
         }
     } else if (initiative === true) {
-        message = 'Please roll for initiative first.'
+        message = 'Please roll for initiative first.';
     } else {
-        message = 'Your turn has ended. \n You may use items next turn.'
+        message = 'Your turn has ended. \n You may use items next turn.';
     }
     render();
 });

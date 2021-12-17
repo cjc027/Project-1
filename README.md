@@ -5,7 +5,7 @@ A minimalistic dungeon crawler with gameplay inspired by _Dungeons & Dragons_. C
 ## Screenshots
 <p float="left">
     <img src="imgs/screenshot_2.png" width="40%" alt="Start screen">
-    <img src="imgs/screenshot_1.png" width="40%" alt="Start screen">
+    <img src="imgs/screenshot_1.png" width="40%" alt="Game in progress">
 </p>
 
 ## Technologies Used
