@@ -41,9 +41,6 @@ const monsters = [
     }
 ];
 
-const rollSound = new Audio('audio/nettimato__rolling-dice-2.wav');
-const potionSound = new Audio('audio/valentinpetiteau__potion-drink-swallow.wav');
-const smokeSound = new Audio('audio/saviraz__poof-in-cloud.mp3');
 
 // State Variables
 let turn;
@@ -81,6 +78,9 @@ const rollEl = document.querySelector('#roll button');
 const messageEl = document.querySelector('#message p');
 
 const bgAudioPlayer = document.querySelector('#bgAudio');
+const rollSound = new Audio('audio/nettimato__rolling-dice-2.wav');
+const potionSound = new Audio('audio/valentinpetiteau__potion-drink-swallow.wav');
+const smokeSound = new Audio('audio/saviraz__poof-in-cloud.mp3');
 
 
 // Init and Render
@@ -89,9 +89,6 @@ function init(){
     renderProgress();
     roundsSurvived = 0;
     messageEl.innerText = 'Choose a difficulty  \n Good luck';
-    playerStatsEl.hidden = true;
-    difficultyDivEl.hidden = false;
-    monsterDivEl.hidden = true;
     rollEl.innerText = 'Roll'
     escaped = false;
     itemsEl.innerHTML = '';
@@ -236,7 +233,10 @@ itemsEl.addEventListener('click', function(event){
         }
     } else if (initiative === true) {
         message = 'Please roll for initiative first.';
-    } else {
+    } else if ((turn%2 !== 0) && event.target.className === 'items') {
+        return
+    } 
+    else {
         message = 'Your turn has ended. \n You may use items next turn.';
     }
     render();
