@@ -91,7 +91,7 @@ function init(){
     messageEl.innerText = 'Choose a difficulty  \n Good luck';
     rollEl.innerText = 'Roll'
     escaped = false;
-    itemsEl.innerHTML = '';
+    // itemsEl.innerHTML = '';
 
     bgAudioPlayer.volume = 0.75;
 
@@ -128,6 +128,7 @@ function renderProgress(){
         playerStatsEl.hidden = true;
         difficultyDivEl.hidden = false;
         itemsEl.hidden = true;
+        itemsEl.innerHTML = '';
     };
 };
 
