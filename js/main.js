@@ -215,7 +215,6 @@ rollEl.addEventListener('click', function(event){
 });
 
 itemsEl.addEventListener('click', function(event){
-    console.dir(event.target);
     if ((turn%2 !== 0) && (initiative === false) && event.target.className !== 'items') {
         if (event.target.className === 'potion'){
             potionSound.volume = 0.5;
