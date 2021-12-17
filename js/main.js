@@ -91,7 +91,6 @@ function init(){
     messageEl.innerText = 'Choose a difficulty  \n Good luck';
     rollEl.innerText = 'Roll'
     escaped = false;
-    // itemsEl.innerHTML = '';
 
     bgAudioPlayer.volume = 0.75;
 
@@ -234,7 +233,7 @@ itemsEl.addEventListener('click', function(event){
         }
     } else if (initiative === true) {
         message = 'Please roll for initiative first.';
-    } else if ((turn%2 !== 0) && event.target.className === 'items') {
+    } else if ((turn%2 !== 0) || (playerHP <= 0) && event.target.className === 'items') {
         return
     } 
     else {
