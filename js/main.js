@@ -186,6 +186,7 @@ rollEl.addEventListener('click', function(event){
         if (monsterHP <= 0){
             message = `You rolled ${rollNum}. You deal ${rollNum} + ${playerSTR} damage! \n Victory!`;
             roundsSurvived += 1;
+            monsterDrop();
         };
         render();
     } else if (monsterHP <= 0 || escaped === true){
@@ -213,7 +214,9 @@ rollEl.addEventListener('click', function(event){
 
 itemsEl.addEventListener('click', function(event){
     if ((turn%2 !== 0) && (initiative === false) && event.target.className !== 'items') {
-        if (event.target.className === 'potion'){
+        if (itemsEl.hasChildNodes() === false){
+            return
+        } else if (event.target.className === 'potion'){
             potionSound.volume = 0.5;
             potionSound.play();
 
@@ -221,7 +224,8 @@ itemsEl.addEventListener('click', function(event){
             turn += 1;
             message = 'You used a potion. You heal for 15 HP!';
             rollEl.innerText = 'Continue';
-            event.target.className = '';
+            // event.target.className = '';
+            event.target.remove();
         } else {
             smokeSound.volume = 0.5;
             smokeSound.play();
@@ -229,7 +233,8 @@ itemsEl.addEventListener('click', function(event){
             escaped = true;
             message = 'You used a smoke bomb. You manage to escape!';
             rollEl.innerText = 'Continue'
-            event.target.className = ''
+            // event.target.className = ''
+            event.target.remove();
         }
     } else if (initiative === true) {
         message = 'Please roll for initiative first.';
@@ -274,12 +279,14 @@ function monsterDrop(){
     if ((Math.floor(Math.random() * 3) + 1) === 1){
         if ((Math.floor(Math.random() * 5) + 1) === 1){
             const newItem = document.createElement('img');
-                    newItem.className = 'smoke';
-                    itemsEl.appendChild(newItem);
+            newItem.className = 'smoke';
+            itemsEl.appendChild(newItem);
+            message += `\n The ${currentMonster.name} dropped a smoke bomb!`
         } else {
             const newItem = document.createElement('img');
-                    newItem.className = 'potion';
-                    itemsEl.appendChild(newItem);
+            newItem.className = 'potion';
+            itemsEl.appendChild(newItem);
+            message += `\n The ${currentMonster.name} dropped a potion!`
         };
     };
 };
