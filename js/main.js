@@ -269,3 +269,19 @@ function rollInitiative(){
     }
     initiative = false;
 }
+
+function monsterDrop(){
+    if ((Math.floor(Math.random() * 3) + 1) === 1){
+        if ((Math.floor(Math.random() * 5) + 1) === 1){
+            const newItem = document.createElement('img');
+                    newItem.className = 'smoke';
+                    itemsEl.appendChild(newItem);
+        } else {
+            const newItem = document.createElement('img');
+                    newItem.className = 'potion';
+                    itemsEl.appendChild(newItem);
+        };
+    };
+};
+
+// Need to change item handler to remove element on use instead of just removing className
