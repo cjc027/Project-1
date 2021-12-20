@@ -255,17 +255,17 @@ function roll(){
 
 function rollInitiative(){
     rollSound.volume = 0.5;
-        rollSound.play();
-        let monsterRoll = roll();
-        let playerRoll = roll();
-        if (playerRoll >= monsterRoll){
-            turn = 1;
-            message = `You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
-            rollEl.innerText = 'Roll';
-        } else {
-            turn = 2;
-            message = `You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
-            rollEl.innerText = 'Continue';
-        }
-        initiative = false;
+    rollSound.play();
+    let monsterRoll = roll();
+    let playerRoll = roll();
+    if (playerRoll >= monsterRoll){
+        turn = 1;
+        message = `You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n You will attack first.`;
+        rollEl.innerText = 'Roll';
+    } else {
+        turn = 2;
+        message = `You rolled ${playerRoll} and the monster rolled ${monsterRoll}. \n The monster will attack first.`;
+        rollEl.innerText = 'Continue';
+    }
+    initiative = false;
 }
